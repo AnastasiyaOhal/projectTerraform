@@ -16,6 +16,3 @@ jobs:
     - name: Copy File
       run: |
         cp newFolder/thisFile folder1/
-        git add newFolder/thisFile
-        git commit -m "Copy file to another folder"
-        git push
