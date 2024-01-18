@@ -17,4 +17,5 @@ jobs:
       run: |
         cd newFolder
         touch myfile.txt
+        cd ..
         cp newFolder/myfile.txt folder1/
