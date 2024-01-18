@@ -15,4 +15,6 @@ jobs:
 
     - name: Copy File
       run: |
-        cp newFolder/thisFile folder1/
+        cd newFolder
+        touch myfile.txt
+        cp newFolder/myfile.txt folder1/
