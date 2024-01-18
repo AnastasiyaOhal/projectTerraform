@@ -1,0 +1,21 @@
+name: Copy File
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  copy-file:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Copy File
+      run: |
+        cp newFolder/thisFile folder1/
+        git add newFolder/thisFile
+        git commit -m "Copy file to another folder"
+        git push
