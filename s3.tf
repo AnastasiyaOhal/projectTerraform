@@ -7,7 +7,7 @@
 # }
 
 resource "aws_s3_bucket_policy" "allow_access_from_another_account" {
-  bucket = aws_s3_bucket.datatechtorialbucket.id
+  bucket = aws_s3_bucket.anastasiyaohaltestmybucket.id
   policy =  <<EOF
             {
                 "Id": "Policy1704934700978",
@@ -17,7 +17,7 @@ resource "aws_s3_bucket_policy" "allow_access_from_another_account" {
                     "Sid": "Stmt1704934699558",
                     "Action": "s3:*",
                     "Effect": "Allow",
-                    "Resource": "${aws_s3_bucket.datatechtorialbucket.arn}/*",
+                    "Resource": "${aws_s3_bucket.anastasiyaohaltestmybucket.arn}/*",
                     "Principal": "*"
                     }
                 ]
@@ -25,8 +25,8 @@ resource "aws_s3_bucket_policy" "allow_access_from_another_account" {
     EOF
 }
 
-resource "aws_s3_bucket" "datatechtorialbucket" {
-    bucket = "datatechtorialbucket"
+resource "aws_s3_bucket" "anastasiyaohaltestmybucket" {
+    bucket = "anastasiyaohaltestmybucket"
     force_destroy = true
 }
 
@@ -36,18 +36,18 @@ resource "aws_s3_bucket_acl" "datatechtorialbucket_acl" {
     aws_s3_bucket_public_access_block.datatechtorialbucket_PAB,
   ]
 
-  bucket = aws_s3_bucket.datatechtorialbucket.id
+  bucket = aws_s3_bucket.anastasiyaohaltestmybucket.id
   acl    = "public-read-write"
 }
 resource "aws_s3_bucket_ownership_controls" "datatechtorialbucket_OC" {
-  bucket = aws_s3_bucket.datatechtorialbucket.id
+  bucket = aws_s3_bucket.anastasiyaohaltestmybucket.id
   rule {
     object_ownership = "BucketOwnerPreferred"
   }
 }
 
 resource "aws_s3_bucket_public_access_block" "datatechtorialbucket_PAB" {
-  bucket = aws_s3_bucket.datatechtorialbucket.id
+  bucket = aws_s3_bucket.anastasiyaohaltestmybucket.id
 
   block_public_acls       = false
   block_public_policy     = false
@@ -80,12 +80,12 @@ resource "aws_iam_policy" "s3accessforec2_policy" {
                 {
                     Action   = ["s3:ListBucket", "s3:PutBucketPolicy"]
                     Effect   = "Allow"
-                    Resource = [aws_s3_bucket.datatechtorialbucket.arn]
+                    Resource = [aws_s3_bucket.anastasiyaohaltestmybucket.arn]
                 },
                 {
                     Action   = ["s3:GetObject", "s3:PutObject"]
                     Effect   = "Allow"
-                    Resource = ["${aws_s3_bucket.datatechtorialbucket.arn}/*"]
+                    Resource = ["${aws_s3_bucket.anastasiyaohaltestmybucket.arn}/*"]
                 }
             ]
         })
