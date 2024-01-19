@@ -115,7 +115,7 @@ resource "aws_security_group" "projectSG_RDS" {
 data "template_file" "init" {
         template = "${file("${path.module}/user_data.sh")}"
         vars = {
-                bucket_name = "${aws_s3_bucket.datatechtorialbucket.id}"
+                bucket_name = "${aws_s3_bucket.anastasiyaohaltestmybucket.id}"
                 db_name = var.db_info[0]
                 db_user = var.db_info[1]
                 db_password = var.db_info[2]
