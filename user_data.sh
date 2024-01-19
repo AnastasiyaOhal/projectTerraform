@@ -13,7 +13,7 @@ pip3 install virtualenv
 
 # Clone your Django project repository
 # Replace with your repository URL and access method
-git clone https://github.com/AnastasiyaOhal/terraform-aws-3TierAppProject.git
+git clone https://github.com/miratwebpr/blogproject.git
 cp -R blogproject/Blog-Project-main/. blogproject
 rm -R blogproject/Blog-Project-main/
 chmod -R 770 blogproject
